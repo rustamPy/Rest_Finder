@@ -44,7 +44,27 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
 
 
      }
+ function setrestaurant() {
 
+         var restname = document.getElementById("restaurant").value;
+         var city = document.getElementById("city").value;
+         var state = document.getElementById("state").value;
+         var zipcode = document.getElementById("zipcode").value;
+         var radius = document.getElementById("radius").value;
+
+
+        $.ajax({
+            url: '/api/rest?restaurant='+restname+'&city='+city+'&state='+state+'&zipcode='+zipcode+'&radius='+radius,
+            type: 'SET',
+            dataType: 'json',
+            success: function (data) {
+              UpdateMap(data)
+            }
+
+        });
+
+
+     }
 
 
 
