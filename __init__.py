@@ -16,6 +16,9 @@ class mongo_connection:
         cursor = self.conn.find(sql)
         return cursor
 
+    def setrest(self, val):
+        self.conn.insert_one(val)
+
 
 db = mongo_connection()
 db.connect()
@@ -29,7 +32,7 @@ def index():
 
 
 @app.route('/api/rest', methods=['GET'])
-def getrestaurats():
+def getrestaurants():
     restname = request.args.get('restaurant')
     city = request.args.get('city')
     state = request.args.get('state')
@@ -61,7 +64,6 @@ def getrestaurats():
 
     cursor = db.query(filters)
 
-
     for cur in cursor:
         print(cur)
         nearby_restaurants.append({
@@ -69,9 +71,31 @@ def getrestaurats():
             'lat': cur['location']['coordinates'][1],
             'lon': cur['location']['coordinates'][0]
         })
-    #nearby_restaurants=[{'orig_lat': 40.3754434, 'orig_lon': 49.8326748}, {'restaurant_name': 'Derya Fish House', 'lat': 40.304027636182674, 'lon': 49.827603950210836}]
+    # nearby_restaurants=[{'orig_lat': 40.3754434, 'orig_lon': 49.8326748}, {'restaurant_name': 'Derya Fish House', 'lat': 40.304027636182674, 'lon': 49.827603950210836}]
     print(nearby_restaurants)
     return jsonify(nearby_restaurants)
+
+
+@app.route('/api/rest', methods=['SET'])
+def setrestaurants():
+    restname = request.args.get('restaurant')
+    city = request.args.get('city')
+    state = request.args.get('state')
+    zipcode = request.args.get('zipcode')
+    rad = request.args.get('radius')
+    rank = request.args.get('rank')
+    zip_or_addr = city + ' ' + state + ' ' + zipcode
+    print(restname)
+    geolocator = Nominatim(user_agent='myapplication')
+    location = geolocator.geocode(zip_or_addr)
+    lat = float(location.raw['lat'])
+    lon = float(location.raw['lon'])
+    succ="Congrats!"
+    data = {"location": {"coordinates": [float(lon), float(lat)], "type": "Point"}, "name": restname, "rank": rank}
+    db.setrest(data)
+
+    return succ
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=9000, debug=True)

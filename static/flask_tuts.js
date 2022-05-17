@@ -23,7 +23,7 @@ var markerIcon = L.Icon.extend({
 
 var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})    
 
- function getrestaurants() {	 	
+ function getr() {
         
          var restname = document.getElementById("restaurant").value;  
          var city = document.getElementById("city").value;  
@@ -44,13 +44,14 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
 
 
      }
- function setrestaurant() {
+ function setr() {
 
          var restname = document.getElementById("restaurant").value;
          var city = document.getElementById("city").value;
          var state = document.getElementById("state").value;
          var zipcode = document.getElementById("zipcode").value;
          var radius = document.getElementById("radius").value;
+         var rank = document.getElementById("rank").value;
 
 
         $.ajax({
