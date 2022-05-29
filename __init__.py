@@ -60,7 +60,8 @@ def getrestaurants():
     filters = {'location': {'$nearSphere': {'$geometry': {'type': "Point",
                                                           'coordinates': [float(lon), float(lat)]},
                                             '$maxDistance': METERS_PER_MILE*int(rad)}},
-               'name': {'$regex': restname, "$options": "i"}}
+               'name': {'$regex': restname, "$options": "i"},
+               'rank':{'$gt':rank}}
     #
     print(filters)
     cursor = db.query(filters)
