@@ -61,7 +61,7 @@ def getrestaurants():
                                                           'coordinates': [float(lon), float(lat)]},
                                             '$maxDistance': METERS_PER_MILE*int(rad)}},
                'name': {'$regex': restname, "$options": "i"},
-               'rank':{'$gt':rank}}
+               'rank':{'$gt':int(rank)}}
     #
     print(filters)
     cursor = db.query(filters)
@@ -71,7 +71,8 @@ def getrestaurants():
         nearby_restaurants.append({
             'restaurant_name': cur['name'],
             'lat': cur['location']['coordinates'][1],
-            'lon': cur['location']['coordinates'][0]
+            'lon': cur['location']['coordinates'][0],
+            'rank':rank
         })
     # nearby_restaurants=[{'orig_lat': 40.3754434, 'orig_lon': 49.8326748}, {'restaurant_name': 'Derya Fish House', 'lat': 40.304027636182674, 'lon': 49.827603950210836}]
     print(f'nearby rests --> {nearby_restaurants}')
@@ -89,7 +90,7 @@ def setrestaurants():
     lat = float(location.raw['lat'])
     lon = float(location.raw['lon'])
     succ="Congrats!"
-    data = {"location": {"coordinates": [float(lon), float(lat)], "type": "Point"}, "name": restname, "rank": rank}
+    data = {"location": {"coordinates": [float(lon), float(lat)], "type": "Point"}, "name": restname, "rank": int(rank)}
     db.setrest(data)
 
     return succ
