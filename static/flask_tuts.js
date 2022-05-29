@@ -26,14 +26,17 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
  function getr() {
         
          var restname = document.getElementById("restaurant").value;  
-         var city = document.getElementById("city").value;  
-         var state = document.getElementById("state").value;  
-         var zipcode = document.getElementById("zipcode").value; 
-         var radius = document.getElementById("radius").value;        
+         var city = document.getElementById("city").value;
+         var addr=document.getElementById("addr").value;
+
+         //var state = document.getElementById("state").value;
+         //var zipcode = document.getElementById("zipcode").value;
+         var radius = document.getElementById("radius").value;
 
          
         $.ajax({
-            url: '/api/rest?restaurant='+restname+'&city='+city+'&state='+state+'&zipcode='+zipcode+'&radius='+radius,
+            url: '/api/rest?restaurant='+restname+'&city='+city+'&addr='+addr+'&radius='+radius+'&rank='+rank,
+            //url: '/api/rest?restaurant='+restname+'&city='+city+'&state='+state+'&zipcode='+zipcode+'&radius='+radius,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -47,15 +50,13 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
  function setr() {
 
          var restname = document.getElementById("restaurant").value;
-         var city = document.getElementById("city").value;
-         var state = document.getElementById("state").value;
-         var zipcode = document.getElementById("zipcode").value;
-         var radius = document.getElementById("radius").value;
+         var addr=document.getElementById("addr").value;
+         var city=document.getElementById("city").value;
          var rank = document.getElementById("rank").value;
 
 
         $.ajax({
-            url: '/api/rest?restaurant='+restname+'&city='+city+'&state='+state+'&zipcode='+zipcode+'&radius='+radius,
+            url: '/api/rest?restaurant='+restname+'&city='+city+'&addr='+addr+'&radius='+radius+'&rank='+rank,
             type: 'SET',
             dataType: 'json',
             success: function (data) {

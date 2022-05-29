@@ -7,9 +7,8 @@ class mongo_connection:
     conn = None
 
     def connect(self):
-        myclient = pymongo.MongoClient(
-            "mongodb+srv://Drmohm:Ferum%402664@mar.sibmp.mongodb.net/?retryWrites=true&w=majority")
-        mydb = myclient["Project_MAR"]
+        myclient = pymongo.MongoClient("localhost", 27017)
+        mydb = myclient["restdb"]
         self.conn = mydb["restaurants"]
 
     def query(self, sql):
@@ -34,21 +33,21 @@ def index():
 @app.route('/api/rest', methods=['GET'])
 def getrestaurants():
     restname = request.args.get('restaurant')
-    city = request.args.get('city')
-    state = request.args.get('state')
-    zipcode = request.args.get('zipcode')
+    addr=request.args.get('addr')
+    city=request.args.get('city')
     rad = request.args.get('radius')
+    rank= request.args.get('rank')
     print(rad)
     print(type(rad))
 
-    print(restname, city, state, zipcode)
+    print(restname)
 
-    zip_or_addr = city + ' ' + state + ' ' + zipcode
+    final_addr=addr+' '+city
 
-    print(f'zip_or_addr: {zip_or_addr}')
+    print(f'Address is: {final_addr}')
 
     geolocator = Nominatim(user_agent='myapplication')
-    location = geolocator.geocode(zip_or_addr)
+    location = geolocator.geocode(final_addr)
     lat = float(location.raw['lat'])
     lon = float(location.raw['lon'])
     nearby_restaurants = [{'orig_lat': lat, 'orig_lon': lon}]
@@ -61,7 +60,7 @@ def getrestaurants():
                                                           'coordinates': [float(lon), float(lat)]},
                                             '$maxDistance': int(rad) * METERS_PER_MILE}},
                'name': {'$regex': restname, "$options": "i"}}
-
+    print(type(filters))
     cursor = db.query(filters)
 
     for cur in cursor:
@@ -79,15 +78,11 @@ def getrestaurants():
 @app.route('/api/rest', methods=['SET'])
 def setrestaurants():
     restname = request.args.get('restaurant')
-    city = request.args.get('city')
-    state = request.args.get('state')
-    zipcode = request.args.get('zipcode')
-    rad = request.args.get('radius')
-    rank = request.args.get('rank')
-    zip_or_addr = city + ' ' + state + ' ' + zipcode
+    addr=request.args.get('addr')
+    rank= request.args.get('rank')
     print(restname)
     geolocator = Nominatim(user_agent='myapplication')
-    location = geolocator.geocode(zip_or_addr)
+    location = geolocator.geocode(addr)
     lat = float(location.raw['lat'])
     lon = float(location.raw['lon'])
     succ="Congrats!"
