@@ -27,8 +27,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
-
+    return render_template("main.html")
+@app.route('/add')
+def add_site():
+    return render_template("add.html")
+@app.route('/search')
+def search_site():
+    return render_template("search.html")
 
 @app.route('/api/rest', methods=['GET'])
 def getrestaurants():
