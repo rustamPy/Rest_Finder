@@ -7,7 +7,7 @@ class mongo_connection:
     col = None
 
     def connect(self):
-        myclient = pymongo.MongoClient("localhost", 27017)
+        myclient = pymongo.MongoClient("localhost",27017)
         mydb = myclient["restdb"]
         self.col = mydb["restaurants"]
 
