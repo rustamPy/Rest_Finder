@@ -18,6 +18,8 @@ class mongo_connection:
     def setrest(self, val):
         self.col.insert_one(val)
 
+    def remrest(self, val):
+        self.col.delete_one(val)
 
 db = mongo_connection()
 db.connect()
@@ -34,6 +36,9 @@ def add_site():
 @app.route('/search')
 def search_site():
     return render_template("search.html")
+@app.route('/delete')
+def delete_site():
+    return render_template("delete.html")
 
 @app.route('/api/rest', methods=['GET'])
 def getrestaurants():
@@ -94,11 +99,20 @@ def setrestaurants():
     location = geolocator.geocode(addr)
     lat = float(location.raw['lat'])
     lon = float(location.raw['lon'])
-    succ="Congrats!"
+
     data = {"location": {"coordinates": [float(lon), float(lat)], "type": "Point"}, "name": restname, "rank": int(rank)}
     db.setrest(data)
 
-    return succ
+    return "Great"
+
+
+@app.route('/api/rest', methods=['REM'])
+def remrestaurants():
+    restname = request.args.get('restaurant')
+    print(restname)
+    data_rem = {'name': {'$regex': restname, "$options": "i"}}
+    db.remrest(data_rem)
+    return jsonify(data_rem)
 
 
 if __name__ == "__main__":

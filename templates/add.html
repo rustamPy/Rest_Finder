@@ -1,23 +1,93 @@
 <!DOCTYPE html>
 <html>
    <head>
-   	<h1 align="center" style="font-size:50px;color:blue;">Restaurant Finderds</h1>
+   	<h1 align="center" style="font-size:50px;color:blue;">Restaurant Adder</h1>
       <title>Restaurant Finder</title>
        <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="static/bootstrap.min.css">
           <link rel="stylesheet" href="static/flask_tuts.css">
           <link rel="stylesheet" href="static/leaflet.css">
-          <link rel="stylesheet" href="loading.css">
+
           <script type="text/javascript" src="static/jquery.min.js"></script>
           <script type="text/javascript" src="static/jquery-1.11.0.min.js"></script>
           <script type="text/javascript" src="static/bootstrap.min.js"></script>
           <script type="text/javascript" src="static/leaflet.js"></script>
           <script type="text/javascript" src="static/flask_tuts.js?version=0.4"></script>
+        <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="static/style.css" rel="stylesheet" />
+
+  <!-- responsive style -->
+  <link href="static/responsive.css" rel="stylesheet" />
 
    </head>
 
    <body>
+
+   <header class="header_section">
+      <div class="container">
+        <div class="top_contact-container">
+          <div class="tel_container">
+            <a href="#">
+               Rustam Karimov
+            </a>
+          </div>
+
+        </div>
+      </div>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="/">
+            <img src="static/main-logo.svg" alt="">
+            <span>
+              FAVREST
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-between">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="add"> Add </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="delete"> Delete </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="search"> Search</a>
+                </li>
+
+              </ul>
+
+
+            </div>
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+
       <div class="container-fluid">
      <div class="row">
       <div class="col-6">
@@ -34,9 +104,7 @@
           <div class="row">
           <input type="text" id = "rank" class="form-control mt-2" placeholder="Rank" required>
     </div>
-    <div class="row">
-          <input type="text" id = "radius" class="form-control mt-2" placeholder="Radius" required>
-    </div>
+
 
           <div class="btn-toolbar form-group">
           <button type="button" class="btn btn-primary col-sm-0" onclick="setr()" style="margin-top:50px;">Add</button>

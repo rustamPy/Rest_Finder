@@ -57,7 +57,7 @@
 /*header section*/
 .hero_area {
   height: 100vh;
-  background-image: url(img/rest-bg.jpg);
+  background-image: url('#');
 }
 
 .sub_page .hero_area {
@@ -159,7 +159,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn {
-  background-image: url(img/search-icon.png);
+  background-image: url(static/search-icon.png);
   background-size: 18px;
   background-repeat: no-repeat;
   background-position: center;
@@ -240,7 +240,7 @@ a:focus {
 }
 
 .custom_nav-container .navbar-toggler .navbar-toggler-icon {
-  background-image: url(img/menu.png);
+  background-image: url(static/menu.png);
   background-size: 42px;
 }
 
@@ -267,27 +267,27 @@ a:focus {
 
 .slider_section .detail-box h1 span {
   font-size: 4rem;
-  color: #ffffff;
+  color: #000000;
   font-weight: bold;
 }
 
 .slider_section .detail-box p {
-  color: #ffffff;
+  color: #000000;
 }
 
 .slider_section .detail-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #2c2c2c;
+  background-color: #ffffff;
   border: 1px solid #2c2c2c;
-  color: #ffffff;
+  color: #000000;
   margin-top: 35px;
   margin-bottom: 45px;
 }
 
 .slider_section .detail-box a:hover {
   background-color: transparent;
-  color: #2c2c2c;
+  color: #000000;
 }
 
 .slider_section #carouselExampleIndicators {
@@ -322,20 +322,20 @@ a:focus {
 
 .slider_section .carousel-control-prev {
   top: 47%;
-  background-image: url(img/left-arrow.png);
+  background-image: url(static/left-arrow.png);
 }
 
 .slider_section .carousel-control-prev:hover {
-  background-image: url(img/left-arrow-blue.png);
+  background-image: url(static/left-arrow-blue.png);
 }
 
 .slider_section .carousel-control-next {
   top: 62%;
-  background-image: url(img/right-arrow.png);
+  background-image: url(static/right-arrow.png);
 }
 
 .slider_section .carousel-control-next:hover {
-  background-image: url(img/right-arrow-blue.png);
+  background-image: url(static/right-arrow-blue.png);
 }
 
 .slider_section .carousel-indicators {
@@ -585,12 +585,12 @@ a:focus {
 }
 
 .health_section .owl-carousel .owl-nav.disabled .owl-prev {
-  background-image: url(img/prev.png);
+  background-image: url(static/prev.png);
   right: 95px;
 }
 
 .health_section .owl-carousel .owl-nav.disabled .owl-next {
-  background-image: url(img/next.png);
+  background-image: url(static/next.png);
   right: 35px;
 }
 
@@ -763,7 +763,7 @@ a:focus {
 }
 
 .contact_section .detail-box {
-  background-image: url(img/contact-bg.jpg);
+  background-image: url(static/contact-bg.jpg);
   color: #ffffff;
   padding: 140px 15%;
   text-align: center;

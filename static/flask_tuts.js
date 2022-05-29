@@ -61,18 +61,33 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
 
 
         $.ajax({
-            url: '/api/rest?restaurant='+restname+'&city='+city+'&addr='+addr+'&radius='+radius+'&rank='+rank,
+            url: '/api/rest?restaurant='+restname+'&city='+city+'&addr='+addr+'&rank='+rank,
             type: 'SET',
             dataType: 'json',
             success: function (data) {
-              UpdateMap(data)
-            }
+                   alert (restname+" with rank: "+rank+" was successfully added")
+               }
 
         });
 
 
      }
 
+ function remr() {
+        var restname = document.getElementById("restaurant").value;
+        $.ajax({
+            url: '/api/rest?restaurant='+restname,
+            type: 'REM',
+            dataType: 'json',
+            success: function (data) {
+                   alert (restname+" was successfully removed")
+               }
+
+
+        });
+
+
+     }
 
 
 function UpdateMap(data){
