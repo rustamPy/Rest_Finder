@@ -28,7 +28,7 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
          var restname = document.getElementById("restaurant").value;  
          var city = document.getElementById("city").value;
          var addr=document.getElementById("addr").value;
-
+         var rank=document.getElementById("rank").value;
          //var state = document.getElementById("state").value;
          //var zipcode = document.getElementById("zipcode").value;
          var radius = document.getElementById("radius").value;
