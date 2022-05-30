@@ -1,3 +1,9 @@
+"""
+Rustam Karimov
+ID: 17915
+
+"""
+
 from flask import Flask, render_template, request, make_response, jsonify
 from geopy.geocoders import Nominatim
 import pymongo
@@ -98,7 +104,6 @@ def getrestaurants():
             'lon': cur['location']['coordinates'][0],
             'rank': cur['rank']
         })
-    # nearby_restaurants=[{'orig_lat': 40.3754434, 'orig_lon': 49.8326748}, {'restaurant_name': 'Derya Fish House', 'lat': 40.304027636182674, 'lon': 49.827603950210836}]
     print(f'nearby rests --> {nearby_restaurants}')
     return jsonify(nearby_restaurants)
 
