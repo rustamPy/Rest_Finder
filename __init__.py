@@ -13,7 +13,7 @@ class mongo_connection:
     col = None
 
     def connect(self):
-        myclient = pymongo.MongoClient("mongodb+srv://rustamDB:HookerIsHere@rest-cluster.sibmp.mongodb.net/?retryWrites=true&w=majority")
+        myclient = pymongo.MongoClient("localhost", 27017)
         mydb = myclient["restdb"]
         self.col = mydb["new_restaurants"]
 
