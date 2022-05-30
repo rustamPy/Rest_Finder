@@ -4,9 +4,6 @@ let loadoriginUri="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAAB
 //let loadoriginUri="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg"
 //let loadoriginUri='<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 297 297" style="enable-background:new 0 0 297 297;" xml:space="preserve"> <g> <path d="M148.5,0C87.43,0,37.747,49.703,37.747,110.797c0,91.026,99.729,179.905,103.976,183.645 c1.936,1.705,4.356,2.559,6.777,2.559c2.421,0,4.841-0.853,6.778-2.559c4.245-3.739,103.975-92.618,103.975-183.645 C259.253,49.703,209.57,0,148.5,0z M148.5,272.689c-22.049-21.366-90.243-93.029-90.243-161.892 c0-49.784,40.483-90.287,90.243-90.287s90.243,40.503,90.243,90.287C238.743,179.659,170.549,251.322,148.5,272.689z"/> <path d="M148.5,59.183c-28.273,0-51.274,23.154-51.274,51.614c0,28.461,23.001,51.614,51.274,51.614 c28.273,0,51.274-23.153,51.274-51.614C199.774,82.337,176.773,59.183,148.5,59.183z M148.5,141.901 c-16.964,0-30.765-13.953-30.765-31.104c0-17.15,13.801-31.104,30.765-31.104c16.964,0,30.765,13.953,30.765,31.104 C179.265,127.948,165.464,141.901,148.5,141.901z"/> </svg>'
 let markerShadow = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAYCAYAAABKtPtEAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOWlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarZGxSsNQFIa/G0XFoVYI4uBwJ1FQbNXBjElbiiBYq0OSrUlDldIk3NyqfQhHtw4u7j6Bk6PgoPgEvoHi1MEhSHASwW/6zs/hcOAHo2LXnYZRhkGsVbvpSNfz5ewTM0wBQCfMUrvVOgCIkzjiJwI+XxEAz5t23WnwN+bDVGlgAmx3oywEUQH6FzrVIMaAGfRTDeIOMNVJuwbiASj1cn8BSkHub0BJuZ4P4gMwe67ngzEHmEHuK4Cpo0sNUEvSkTrrnWpZtSxL2t0kiOTxKNPRIJP7cZioNFEdHXWB/D8AFvPFdtORa1XL2lvnn3E9X+b2foQAxNJjkRWEQ3X+3YWx8/tc3Bgvw+EtTE+KbPcKbjZg4brIVqtQ3oL78RfCs0/+HAmzJwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAABnElEQVR42uRY0Y6EIAxsOe7/f3i197Ikk9lSqIsXjSakirvITIdSqmYmT74qPqjqqnH1hLku8RQ7vJ4AUE9ylg5IsK8VkACtyfe6wOMG49gqtdQDoLP2CAnWeY5sTyF2lAAP0KiJc/8tAQiS73tNJogJCWAwxbGFwBeHKEmQYQOPI7id+nboQzskoU6CLyLyQ7YQESWpiJH3I4/vBLy1DazMkBApQAFwa5WePSKipTEiIfK853EE3trr/Q2PhHQMQO9XEfl9W48IDUhYSQB6n4G/aCwvLoQEeAEPCeiREKmAl8FsDIjkz55/0RaJv1OQ/8cyqBOJjHbUgHaGgCgQWkIFO4HD/200h2EiVeThV+1IUR05ouz4/RWWwEbboc0kRLUDnj+4EYjWf8UgiGSYQ+b0LmCwzjbobx++8jbIakinwubsoej1OyRC0XKYigEeCQUi7R1S4VD+IwUgCS0G7Dc5DPVOjZKNAdo5XV3xONwDfPg4LMH52ksq/qMgMprX8oJIpspik6Wrs+qCp5fEMhO5bFH0I+9/eln8bwDFO0IimD64UgAAAABJRU5ErkJggg==";
-let imageUri;
-
-imageUri="https://upload.wikimedia.org/wikipedia/commons/e/ed/Map_pin_icon.svg";
 // Round marker template - SVG -initial
 let roundSVG ="<svg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='40px' height='50px' viewBox='0 0 64 80' enable-background='new 0 0 64 80' xml:space='preserve'> <g> <path fill='%23563D7D' d='M64,32C64,14.327,49.673,0,32,0C14.327,0,0,14.327,0,32c0,14.243,9.309,26.308,22.172,30.456L31.942,80 l9.539-17.429C54.524,58.531,64,46.372,64,32z'/> </g> <g> <defs> <circle id='Clip' cx='32' cy='32' r='28'/> </defs> <clipPath id='ClipPath'> <use xlink:href='%23Clip' overflow='visible'/> </clipPath> <image overflow='visible' clip-path='url(%23ClipPath)' width='64' height='64' id='Icon' xlink:href='AVATAR_URI_HERE' > </image> </g> </svg>";
 
@@ -65,7 +62,7 @@ var loadoriginIcon = new markerIcon({iconUrl: makeMarkerUri( loadoriginUri )})
             type: 'SET',
             dataType: 'json',
             success: function (data) {
-                   alert (restname+" with rank: "+rank+" was successfully added")
+                   UpdateMap(data)
                }
 
         });
@@ -103,8 +100,7 @@ function UpdateMap(data){
           autoPan: true,
          })
           .addTo(map)
-          .bindPopup("Name: "+data[m]['restaurant_name']+"\n"+"Rank: "+data[m]['rank'])
-
+          .bindPopup("Name: "+data[m]['restaurant_name']+"<dd>"+"Rank: "+data[m]['rank'])
           markerarr.push(marker);
         }
 
@@ -114,15 +110,15 @@ function UpdateMap(data){
 
 
 
-/*Clear all Markers and Polylines on the map*/
+
 function clearMap() {
 
-/*Remove markers*/
+
 for(i=0;i<markerarr.length;i++) {
     map.removeLayer(markerarr[i]);
     }
 
-/*Remove Polylines*/
+
 for(i in map._layers) {
         if(map._layers[i]._path != undefined) {
             try {
@@ -141,3 +137,4 @@ window.onbeforeunload = function() {
   sessionStorage.removeItem('access_token');
   return '';
 };
+
