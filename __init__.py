@@ -118,7 +118,7 @@ def setrestaurants():
     lon = float(location.raw['lon'])
     data = {"location": {"coordinates": [float(lon), float(lat)], "type": "Point"}, "name": restname, "rank": float(rank)}
     db.setrest(data)
-    return "Great"
+    return True
 
 @app.route('/api/rest', methods=['REM'])
 def remrestaurants():
