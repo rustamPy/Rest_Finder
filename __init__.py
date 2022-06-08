@@ -1,18 +1,15 @@
 """
 Rustam Karimov
 ID: 17915
-Hello there
-HELL
 """
 
 from flask import Flask, render_template, request, make_response, jsonify
 from geopy.geocoders import Nominatim
 import pymongo
-
+import os
 
 class mongo_connection:
     col = None
-
     def connect(self):
         myclient = pymongo.MongoClient("localhost", 27017)
         mydb = myclient["restdb"]
@@ -119,12 +116,9 @@ def setrestaurants():
     location = geolocator.geocode(addr)
     lat = float(location.raw['lat'])
     lon = float(location.raw['lon'])
-
     data = {"location": {"coordinates": [float(lon), float(lat)], "type": "Point"}, "name": restname, "rank": float(rank)}
     db.setrest(data)
-
     return "Great"
-
 
 @app.route('/api/rest', methods=['REM'])
 def remrestaurants():
@@ -133,7 +127,6 @@ def remrestaurants():
     data_rem = {'name': {'$regex': restname, "$options": "i"}}
     db.remrest(data_rem)
     return jsonify(data_rem)
-
 
 if __name__ == "__main__":
     app.run(host='127.0.0.2', port=1313, debug=True)
